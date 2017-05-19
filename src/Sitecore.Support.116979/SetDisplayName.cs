@@ -5,6 +5,7 @@ using Sitecore.Shell.Framework.Commands;
 
 namespace Sitecore.Support.Shell.Framework.Commands
 {
+    [System.Serializable]
     public class SetDisplayName : Sitecore.Shell.Framework.Commands.SetDisplayName
     {
         public override CommandState QueryState(CommandContext context)
