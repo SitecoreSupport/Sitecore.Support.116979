@@ -45,10 +45,15 @@
             {
                 return CommandState.Disabled;
             }
-            if (!item.Locking.HasLock() && !Context.IsAdministrator)
+            #region sitecore.support.116979
+            //if (!item.Locking.HasLock() && !Context.IsAdministrator)
+            bool flag = Settings.RequireLockBeforeEditing && !item.Locking.HasLock();
+            if (flag && !Context.IsAdministrator)
             {
                 return CommandState.Disabled;
             }
+
+            #endregion
             return base.QueryState(context);
         }
     }
